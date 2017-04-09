@@ -7,28 +7,30 @@ public class Main {
 
 	public static void main(String[] args) {
 		int test = 12;
-		answer(test);
+		System.out.println(answer(test));
 		
 		
 	}
 	
-	public static <T> List<T> answer(int measure){
+	public static <T> List <T> answer(int area){
 		List list = new ArrayList<>();
 		
-		for(int i = measure; i > 0; i--){
+		int tmp = area;
+		
+		while (area > 0){
 			//checking if number is a perfect square
-			double sqrt = Math.sqrt(i);
+			double sqrt = Math.sqrt(tmp);
 			int x = (int) sqrt;
 			if(Math.pow(sqrt,2) == Math.pow(x,2)){
-				list.add(i);
-			}else{
-				System.out.println("Not possible");
+				list.add(tmp);
+				area -= tmp;
+				tmp = area;
 			}
+			
+			tmp -= 1;
 		}
-
-		System.out.println(list);
-		return list;
 		
+		return list;
 	}
 
 }
